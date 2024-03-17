@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Love Symbols</title>
+    <style>
+        body,
+        html {
+            height: 150%;
+            margin: 0;
+
+        }
+
+        .heart-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 10px;
+            color: red;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart-container">
+        <!-- JavaScript will generate the hearts dynamically here -->
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector('.heart-container');
+            const numberOfHearts = 50; // Change this value as needed
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('span');
+                heart.innerHTML = '❤'; // You can change this to any love symbol you prefer
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Random animation duration
+                container.appendChild(heart);
+            }
+        });
+    </script>
+</body>
+
+</html>
